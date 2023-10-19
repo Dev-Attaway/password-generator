@@ -31,7 +31,7 @@ function writePassword()
     let isNumIn_pass  = false;
     let isSpecialIn_pass  = false;
 
-    
+
 
     // Number cast, casts the datat entered by the user into a a data type: Number
     let aNumber = Number(window.prompt("Please enter a length for your password (8-128)", ""));
@@ -56,11 +56,15 @@ function writePassword()
     // isLower_case = !isLower_case; set Bool value to the opposite of it current value
     // Check if the string entered is between starts with "y" or "n"
     // If lower_case is not "y" or "n" then stay in the loop
-
     if(lower_case === 'y')
     {
       isLower_case = !isLower_case;
     }
+
+
+
+    if(lower_case === 'y')
+      isLower_case = !isLower_case;
 
     while (lower_case !== 'y' && lower_case !== 'n')
     {
@@ -75,12 +79,14 @@ function writePassword()
       {
         isLower_case = !isLower_case;
       }
+
     }
 
     // Follows the same code for lowercase however we are now interested in getting the upper case.
     let upper_case = String(window.prompt("Do you want uppercase within your password (y/n) ?", ""));
     upper_case = upper_case.toLowerCase();
     upper_case = upper_case.charAt(0);
+
 
     if(upper_case === 'y')
     {
@@ -220,6 +226,7 @@ function writePassword()
 
 
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

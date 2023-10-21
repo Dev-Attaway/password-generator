@@ -160,14 +160,6 @@ function passwordSpecialCharacter()
     return flag;
 }
 
-    
-// Write password to the #password input
-function writePassword() 
-{
-  let passwordText = document.querySelector("password");
-  let password = generatePassword();
-
-
   function generatePassword() 
   {
 
@@ -202,6 +194,13 @@ function writePassword()
 
     return passwordArray.join('');
   }  
+
+    
+// Write password to the #password input
+function writePassword() 
+{
+  let passwordText = document.querySelector("password");
+  let password = generatePassword();
 
   console.log(password);
   passwordText.text == password;

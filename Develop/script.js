@@ -11,7 +11,7 @@ var generateBtn = document.querySelector("#generate");
 // LOWERCASE_CHAR, NUMBERS, SPECIAL_CHAR.
 // These are our arrays for storing the decimal representation of characters listed below
 // A -> Z, a -> z, 0 -> 9, ! -> /, : -> @, [ -> `
-// SPECIAL_CHAR required 3 concatanations because there are gaps for groups ( ! -> /, : -> @, [ -> ` )
+// SPECIAL_CHAR required 3 concatenations because there are gaps for groups ( ! -> /, : -> @, [ -> ` )
 // Refer to https://www.charset.org/utf-8 for complete table of UFT-8 Unicode 
 const UPPERCASE_CHAR = arrayCharReader(65, 90);
 const LOWERCASE_CHAR = arrayCharReader(97, 122);
@@ -24,7 +24,7 @@ const SPECIAL_CHAR = arrayCharReader(33, 47)
   )
 );
 
-// This will read a min and max value and be inputed into an, at this moment, empty array
+// This will read a min and max value and be input into an, at this moment, empty array
 // When is array is returned -> array[min -> max]
 function arrayCharReader (min, max)
 {
@@ -37,11 +37,11 @@ function arrayCharReader (min, max)
 
 function passwordLength()
 {
-      // Number cast, casts the datat entered by the user into a a data type: Number
+      // Number  casts the data entered by the user into a data type: Number
       let length = Number(window.prompt("Please enter a length for your password (8-128)", ""));
 
-      // check if the number entered is between 8 and 128
-      // if aNumber is not between 8 and 128 then stay in the loop
+      //Check if the number entered is between 8 and 128
+      //If aNumber is not between 8 and 128 then stay in the loop
   
       while ((length < 8 || length > 128)) 
       {
@@ -51,9 +51,9 @@ function passwordLength()
 }
 
 // The functions below contain the same if and while logic and even return the boolean value flag
-// However they're returns affect different parameters
-// The same "if and while logic" could be placed into it's own function, however It will require
-// 4 unique functions with the correponding text prompts and 1 function for "if and while logic"
+// However their returns affect different parameters
+// The same "if and while logic" could be placed into its own function, It will require
+// 4 unique functions with the corresponding text prompts and 1 function for "if and while logic"
 // At current we only need 4 functions to complete the same operation 
 
 function passwordLowerCase()
@@ -62,13 +62,13 @@ function passwordLowerCase()
   // Ask the user whether or not to include lowercase
     let lower_case = String(window.prompt("Do you want lowercase within your password (y/n) ?", ""));
 
-    // sets string entered bu user to lowercase
+    // sets string entered by the user to lowercase
     lower_case = lower_case.toLowerCase();
 
     //grabs the first letter of the string the user enters and sets it to lower_case 
     lower_case = lower_case.charAt(0);
 
-    // isLower_case = !isLower_case; set Bool value flag to the opposite of it current value
+    // isLower_case = !isLower_case; set Bool value flag to the opposite of its current value
     // Check if the string entered is between starts with "y" or "n"
     // If lower_case is not "y" or "n" then stay in the loop
     if(lower_case === 'y')
@@ -78,8 +78,8 @@ function passwordLowerCase()
 
     while (lower_case !== 'y' && lower_case !== 'n')
     {
-      // in this case the user has not enter y/n or yes/no therefore code must ask user for a response to sasfity the question 
-      // We repeat the code from when we orginally asked the user for y/n
+      //In this case the user has not entered y/n or yes/no therefore code must ask the user for a response to satisfy the question 
+      // We repeat the code from when we originally asked the user for y/n
 
       lower_case = String(window.prompt("Sorry! \nThat length is not appropriate for this password. \nDo you want lowercase within your password (y/n) ?", ""));
       lower_case = lower_case.toLowerCase()
@@ -95,7 +95,7 @@ function passwordLowerCase()
 
 function passwordUppercase()
 {
-    // Follows the same code for lowercase however we are now interested in getting the upper case.
+    // Follows the same code for lowercase however we are now interested in getting the uppercase.
     let flag = false;
 
     let upper_case = String(window.prompt("Do you want uppercase within your password (y/n) ?", ""));
@@ -110,7 +110,7 @@ function passwordUppercase()
 
     while (upper_case !== 'y' && upper_case !== 'n') 
     {
-      upper_case = String(window.prompt("Sorry! \nThat anwser is not appropriate for this. \nDo you want uppercase within your password (y/n) ?", ""));
+      upper_case = String(window.prompt("Sorry! \nThat answer is not appropriate for this. \nDo you want uppercase within your password (y/n) ?", ""));
       upper_case = upper_case.toLowerCase();
       upper_case = upper_case.charAt(0);
 
@@ -124,7 +124,7 @@ function passwordUppercase()
 
 function passwordNumber()
 {
-      // Follows the same code for lowercase however we are now interested in getting the upper case.
+      // Follows the same code for lowercase however we are now interested in getting the uppercase.
     let flag = false;
     let include_num = String(window.prompt("Do you want numbers within your password (y/n) ?", ""));
     include_num = include_num.toLowerCase();
@@ -137,7 +137,7 @@ function passwordNumber()
 
     while (include_num !== 'y' && include_num !== 'n') 
     {
-      include_num = String(window.prompt("Sorry! \nThat anwser is not appropriate for this. \nDo you want numbers within your password (y/n) ?", ""));
+      include_num = String(window.prompt("Sorry! \nThat answer is not appropriate for this. \nDo you want numbers within your password (y/n) ?", ""));
       include_num = include_num.toLowerCase();
       include_num = include_num.charAt(0); 
 
@@ -151,7 +151,7 @@ function passwordNumber()
 
 function passwordSpecialCharacter()
 {
-      // Follows the same code for lowercase however we are now interested in getting the upper case.
+      // Follows the same code for lowercase however we are now interested in getting the uppercase.
 
     let flag = false;
     let special_char = String(window.prompt("Do you want special characters within your password (y/n) ?", ""));
@@ -165,7 +165,7 @@ function passwordSpecialCharacter()
 
     while (special_char !== 'y' && special_char !== 'n') 
     {
-      special_char = String(window.prompt("Sorry! \nThat anwser is not appropriate for this. \nDo you want special characters within your password (y/n) ?", ""));
+      special_char = String(window.prompt("Sorry! \nThat answer is not appropriate for this. \nDo you want special characters within your password (y/n) ?", ""));
       special_char = special_char.toLowerCase();
       special_char = special_char.charAt(0); 
 
@@ -181,21 +181,19 @@ function passwordSpecialCharacter()
   {
 
     // Calls the functions used to determine the user's password parameters 
-    // and passes the Boolean result in the Corresponding variables below 
-
-    let aNumber = passwordLength();
+    // and passes the Boolean result in the Corresponding variables 
     let isLowerCase = passwordLowerCase();
     let isUpperCase = passwordUppercase();
     let isNum = passwordNumber();
     let isSpecial = passwordSpecialCharacter();
 
-    // decimalCode is an empty array that will hold, depending on the input of the user, the decimal values of
+    // decimal code is an empty array that will hold, depending on the input of the user, the decimal values of
     // the UPPERCASE_CHAR, LOWERCASE_CHAR, NUMBERS, SPECIAL_CHAR arrays.
     // Decimal =/= Actual, refer to lines (213-217) on the conversion of Decimal -> Actual
     let decimalCode = [];
 
     // If no parameters are met then no password will be generated this while loop ensures that at least one
-    //  parameter is sastified by user
+    //  parameter is satisfied by user
     if( (isLowerCase  == false ) && (isUpperCase == false) && (isNum  == false) && (isSpecial == false))
     {
       while((isLowerCase  == false ) && (isUpperCase == false) && (isNum  == false) && (isSpecial == false))
@@ -207,8 +205,8 @@ function passwordSpecialCharacter()
          isSpecial = passwordSpecialCharacter();
       }
     }
-    // The flags isLowerCase, isUpperCase, isNum, isSpecial called in the preceeding lines (185 - 189)
-    // Determine which array in concatinated onto the array: decimalCode
+    // The flags isLowerCase, isUpperCase, isNum, isSpecial are called in the preceding lines (185 - 189)
+    // Determine which array is concatenated onto the array: decimal code
     if(isLowerCase)
       decimalCode = decimalCode.concat(LOWERCASE_CHAR);
 
@@ -235,8 +233,8 @@ function passwordSpecialCharacter()
       passwordArray.push(String.fromCharCode(passwordChar));
     }
 
-    // Convert the array format of our password "a,b,c,d,e,f,g" to "abcdefg" using the .join method to remove the the ","
-    // .join('') syntacially does the operation of "a,b,c,d,e,f,g" to "abcdefg"
+    // Convert the array format of our password "a,b,c,d,e,f,g" to "abcdefg" using the .join method to remove the ","
+    // .join('') syntactically does the operation of "a,b,c,d,e,f,g" to "abcdefg"
     return passwordArray.join('');
   }  
 

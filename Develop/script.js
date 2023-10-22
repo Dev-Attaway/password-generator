@@ -7,7 +7,6 @@
 
 var generateBtn = document.querySelector("#generate");
 
-
 const UPPERCASE_CHAR = arrayCharReader(65, 90);
 const LOWERCASE_CHAR = arrayCharReader(97, 122);
 const NUMBERS = arrayCharReader(48, 57);
@@ -27,34 +26,26 @@ function arrayCharReader (min, max)
   
   return array;
 }
-    
-// Write password to the #password input
-function writePassword() 
+
+function passwordLength()
 {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+      // Number cast, casts the datat entered by the user into a a data type: Number
+      let length = Number(window.prompt("Please enter a length for your password (8-128)", ""));
 
-  function generatePassword() 
-  {
+      // check if the number entered is between 8 and 128
+      // if aNumber is not between 8 and 128 then stay in the loop
+  
+      while ((length < 8 || length > 128)) 
+      {
+        length = Number(window.prompt("Sorry! \nThat length is not appropriate for this password. \nPlease enter an appropriate length. (8-128)", ""));
+      }
+  return length
+}
 
-    // theses flags will signal the funcion to include specific characters and styles
-    let isUpper_case = false;
-    let isLower_case = false;
-    let isInclude_num = false;
-    let isSpecial_char = false;
-    
-    // Number cast, casts the datat entered by the user into a a data type: Number
-    let aNumber = Number(window.prompt("Please enter a length for your password (8-128)", ""));
-
-    // check if the number entered is between 8 and 128
-    // if aNumber is not between 8 and 128 then stay in the loop
-
-    while ((aNumber <= 8 || aNumber >= 128)) 
-    {
-      aNumber = Number(window.prompt("Sorry! \nThat length is not appropriate for this password. \nPlease enter an appropriate length. (8-128)", ""));
-    }
-
-    // Ask the user whether or not to include lowercase
+function passwordLowerCase()
+{
+  let flag = false;
+  // Ask the user whether or not to include lowercase
     let lower_case = String(window.prompt("Do you want lowercase within your password (y/n) ?", ""));
 
     // sets string entered bu user to lowercase
@@ -68,9 +59,8 @@ function writePassword()
     // If lower_case is not "y" or "n" then stay in the loop
     if(lower_case === 'y')
     {
-      isLower_case = !isLower_case;
+      flag = !flag;
     }
-
 
     while (lower_case !== 'y' && lower_case !== 'n')
     {
@@ -81,22 +71,27 @@ function writePassword()
       lower_case = lower_case.toLowerCase()
       lower_case = lower_case.charAt(0)
 
-      if(lower_case == 'y')
+      if(lower_case === 'y')
       {
-        isLower_case = !isLower_case;
+        flag = !flag;
       }
-
     }
+    return flag;
+}
 
+function passwordUppercase()
+{
     // Follows the same code for lowercase however we are now interested in getting the upper case.
+    let flag = false;
+
     let upper_case = String(window.prompt("Do you want uppercase within your password (y/n) ?", ""));
     upper_case = upper_case.toLowerCase();
     upper_case = upper_case.charAt(0);
 
 
-    if(upper_case == 'y')
+    if(upper_case === 'y')
     {
-      isUpper_case = !isUpper_case;
+      flag = !flag;
     }
 
     while (upper_case !== 'y' && upper_case !== 'n') 
@@ -107,38 +102,48 @@ function writePassword()
 
       if(upper_case === 'y')
       {
-        isUpper_case = !isUpper_case;
+        flag = !flag;
       }
     }
+    return flag;
+}
 
+function passwordNumber()
+{
+    let flag = false;
     let include_num = String(window.prompt("Do you want numbers within your password (y/n) ?", ""));
-    include_num = upper_case.toLowerCase();
-    include_num = upper_case.charAt(0);
+    include_num = include_num.toLowerCase();
+    include_num = include_num.charAt(0);
 
     if(include_num === 'y')
     {
-      isInclude_num = !isInclude_num;
+      flag = !flag;
     }
 
     while (include_num !== 'y' && include_num !== 'n') 
     {
       include_num = String(window.prompt("Sorry! \nThat anwser is not appropriate for this. \nDo you want numbers within your password (y/n) ?", ""));
-      include_num = upper_case.toLowerCase();
-      include_num = upper_case.charAt(0); 
+      include_num = include_num.toLowerCase();
+      include_num = include_num.charAt(0); 
 
       if(include_num === 'y')
       {
-        isInclude_num = !isInclude_num;
+        flag = !flag;
       }
     }
+    return flag;
+}
 
+function passwordSpecialCharacter()
+{
+    let flag = false;
     let special_char = String(window.prompt("Do you want special characters within your password (y/n) ?", ""));
     special_char = special_char.toLowerCase();
     special_char = special_char.charAt(0);
 
       if(special_char === 'y')
       {
-        isSpecial_char = !isSpecial_char;
+        flag = !flag;
       }
 
     while (special_char !== 'y' && special_char !== 'n') 
@@ -147,45 +152,59 @@ function writePassword()
       special_char = special_char.toLowerCase();
       special_char = special_char.charAt(0); 
 
-    
-
       if(special_char === 'y')
       {
-        isSpecial_char = !isSpecial_char;
+        flag = !flag;
       }
     }
+    return flag;
+}
 
+  function generatePassword() 
+  {
 
-    let charCode = LOWERCASE_CHAR;
-    if(isUpper_case)
-    {
+    //calls the function passwordLength to get the  
+    let aNumber = passwordLength();
+    let isLowerCase = passwordLowerCase();
+    let isUpperCase = passwordUppercase();
+    let isNum = passwordNumber();
+    let isSpecial = passwordSpecialCharacter();
+
+    let charCode = [];
+
+    if(isLowerCase)
+      charCode = charCode.concat(LOWERCASE_CHAR);
+
+    if(isUpperCase)
       charCode = charCode.concat(UPPERCASE_CHAR);
 
-    }
-    if(isInclude_num)
-    {
+    if(isNum)
       charCode = charCode.concat(NUMBERS);
 
-    }    
-    if(isSpecial_char)
-    {
+    if(isSpecial)
       charCode = charCode.concat(SPECIAL_CHAR);
 
-    }
+    const passwordArray = [];
 
-    const password = [];
     for(let i =0; i < aNumber; i++)
     {
       const passwordChar= charCode[Math.floor(Math.random() * charCode.length)];
-      password.push(String.fromCharCode(passwordChar));
+      passwordArray.push(String.fromCharCode(passwordChar));
     }
 
+    return passwordArray.join('');
+  }  
 
-    console.log(password.join(''));
+    
+// Write password to the #password input
+function writePassword() 
+{
+  let passwordText = document.querySelector("password");
+  let password = generatePassword();
 
-  }
+  console.log(password);
+  passwordText.text == password;
 
-  
 }
 
 
@@ -194,6 +213,5 @@ function writePassword()
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// console.log(writePassword.password);
 
 

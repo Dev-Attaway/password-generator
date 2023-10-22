@@ -3,7 +3,8 @@
 ## Description
 This project is intended to display that the Developer is familiar with JavaScript and furthermore demonstrates the Developers ability in JS
 # Completed Website page:
-![](./assets/images/README.png)
+![](./Assets/03-javascript-homework-demo.png)
+
 ## Installation
 
 Files are available for download through Git Hub:

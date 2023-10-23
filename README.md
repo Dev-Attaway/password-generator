@@ -8,7 +8,7 @@ This project is intended to display that the Developer is familiar with JavaScri
 ## Installation
 
 Files are available for download through Git Hub:
-https://github.com/Dev-Attaway/my-portfolio
+https://github.com/Dev-Attaway/password-generator
 
 ## Usage
 

@@ -182,6 +182,7 @@ function passwordSpecialCharacter()
 
     // Calls the functions used to determine the user's password parameters 
     // and passes the Boolean result in the Corresponding variables 
+    let aNumber = passwordLength();
     let isLowerCase = passwordLowerCase();
     let isUpperCase = passwordUppercase();
     let isNum = passwordNumber();
@@ -242,12 +243,17 @@ function passwordSpecialCharacter()
 // Write password to the #password input
 function writePassword() 
 {
-  let passwordText = document.querySelector("password");
+  // document.querySelector finds an id = password
+  // The address of of the element who has te id of "password"
+  // is stored in passwordText
+  // generatePassword is called and password the variable password
+  // stores the result
+  // The setAttribute finds the 
+  // https://www.youtube.com/watch?v=yc-AeIdRVEI
+
+  let passwordText = document.querySelector("#password");
   let password = generatePassword();
-
-  console.log(password);
-  // passwordText.text == password;
-
+  passwordText.setAttribute("value", password);
 }
 
 

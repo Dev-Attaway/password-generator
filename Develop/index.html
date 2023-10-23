@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
+    <title>Nicholas Attaway's Password Generator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -17,11 +17,9 @@
           <h2>Generate a Password</h2>
         </div>
         <div class="card-body">
-          <textarea
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
+          <!-- textarea wasn't allowing me to highlight the password
+           input allows me highlight the password -->
+          <input type = "text"  id = "password" value = "" readonly />
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>

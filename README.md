@@ -23,7 +23,7 @@ Source code:
 
 
 The webpage can be viewed through this link:
-https://dev-attaway.github.io/my-portfolio/
+https://dev-attaway.github.io/password-generator/
 
 ## License
 
